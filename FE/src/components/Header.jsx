@@ -17,9 +17,9 @@ function Header() {
           </Link>
           
           <ul className="nav-links">
-            <li><NavLink className={({ isActive }) => isActive ? 'activeLink' : ''} to="/dashboard">Dashboard</NavLink></li>
-            <li><NavLink className={({ isActive }) => isActive ? 'activeLink' : ''} to="/download">Download</NavLink></li>
-            <li><NavLink className={({ isActive }) => isActive ? 'activeLink' : ''} to="/verify">Verify Certificate</NavLink></li>
+            <li><NavLink className={({ isActive }) => isActive ? 'activeLink' : ''} to="/dashboard" onClick={() => window.scrollTo(0, 0)}>Dashboard</NavLink></li>
+            <li><NavLink className={({ isActive }) => isActive ? 'activeLink' : ''} to="/download" onClick={() => window.scrollTo(0, 0)}>Download</NavLink></li>
+            <li><NavLink className={({ isActive }) => isActive ? 'activeLink' : ''} to="/verify" onClick={() => window.scrollTo(0, 0)}>Verify Certificate</NavLink></li>
           </ul>
           
           <div className="nav-auth">

@@ -46,9 +46,9 @@ function Verify() {
     issuer: 'SecureWipe Certification Authority',
     digitalSignature: `SHA-256: ${cert.hash}`,
     deviceInfo: {
-      serialNumber: 'N/A', // backend doesn't provide this
+      serialNumber: cert.device_name ? cert.device_name.match(/SNO\. - ([^)]+)/)?.[1] || 'N/A' : 'N/A',
       manufacturer: 'N/A', // backend doesn't provide this
-      model: cert.device_name || 'N/A',
+      model: cert.device_name ? cert.device_name.split(' (')[0] : 'N/A',
       capacity: cert.capacity || 'N/A',
     },
     wipingDetails: {
@@ -319,7 +319,7 @@ function Verify() {
                   </h4>
                   <div style={{ fontSize: '0.875rem', lineHeight: '1.6' }}>
                     <p><strong>Serial:</strong> {verificationResult.deviceInfo.serialNumber || 'N/A'}</p>
-                    <p><strong>Manufacturer:</strong> {verificationResult.deviceInfo.manufacturer || 'N/A'}</p>
+                    {/*<p><strong>Manufacturer:</strong> {verificationResult.deviceInfo.manufacturer || 'N/A'}</p> */}
                     <p><strong>Model:</strong> {verificationResult.deviceInfo.model || 'N/A'}</p>
                     <p><strong>Capacity:</strong> {verificationResult.deviceInfo.capacity || 'N/A'}</p>
                   </div>

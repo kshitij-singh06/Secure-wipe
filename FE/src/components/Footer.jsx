@@ -20,9 +20,10 @@ function Footer() {
           <div className="footer-section">
             <h4>Platform</h4>
             <ul className="footer-links">
-              <li><Link to="/dashboard">Dashboard</Link></li>
-              <li><Link to="/verify">Verify Certificate</Link></li>
-              <li><a href="#">API Documentation</a></li>
+              <li><Link to="/dashboard" onClick={() => window.scrollTo(0, 0)}>Dashboard</Link></li>
+              <li><Link to="/download" onClick={() => window.scrollTo(0, 0)}>Download</Link></li>
+              <li><Link to="/verify" onClick={() => window.scrollTo(0, 0)}>Verify Certificate</Link></li>
+              
             </ul>
           </div>
           
@@ -40,7 +41,7 @@ function Footer() {
             <h4>Resources</h4>
             <ul className="footer-links">
               <li><Link to="/faq" onClick={() => window.scrollTo(0, 0)}>FAQ</Link></li>
-              <li><a href="#">Documentation</a></li>
+              <li><a href="https://github.com/Sudhanshuarya12345/Secure-Wipe" target="_blank">Documentation</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
           </div>

@@ -3,6 +3,18 @@ import { Download, Monitor, Smartphone, HardDrive, Shield, CheckCircle, FileChec
 
 function DownloadPage() {
   const [selectedPlatform, setSelectedPlatform] = useState('windows')
+  
+  const handleDownload = () => {
+    const selectedPlatformData = platforms.find(p => p.id === selectedPlatform)
+    if (selectedPlatformData && selectedPlatformData.downloadUrl) {
+      const link = document.createElement('a')
+      link.href = selectedPlatformData.downloadUrl
+      link.download = `secure-wipe-${selectedPlatformData.version}.exe`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  }
 
   const platforms = [
     {
@@ -12,7 +24,7 @@ function DownloadPage() {
       version: 'v2.4.1',
       size: '127 MB',
       description: 'Compatible with Windows 10, 11 (x64)',
-      downloadUrl: '#'
+      downloadUrl: '/secure-wipe.exe'
     },
     {
       id: 'linux',
@@ -113,7 +125,11 @@ function DownloadPage() {
 
           {/* Download Button */}
           <div style={{ textAlign: 'center' }}>
-            <button className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.125rem', fontWeight: '600' }}>
+            <button 
+              className="btn btn-primary" 
+              style={{ padding: '1rem 2rem', fontSize: '1.125rem', fontWeight: '600' }}
+              onClick={handleDownload}
+            >
               <Download size={20} style={{ marginRight: '0.5rem' }} />
               Download for {platforms.find(p => p.id === selectedPlatform)?.name}
             </button>
